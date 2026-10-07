@@ -1,0 +1,9 @@
+{
+  "inputs": {
+    "input_snapshot/local-tokenizer-check.json": "3e48825811746bdb65acb6bce03819b8b9ca326e7b9a8bf7fdd2d7b44a4beab2",
+    "input_snapshot/manifest.json": "30917cc4b01a0e81173f94b9cc01cf8f708267bfc6a18260b406673039af3501",
+    "input_snapshot/tokens-test.npz": "573318313c457f11528bb69c8fbeaa404c47e29bcf9e89ae714f4958fa9a0e10",
+    "input_snapshot/tokens-train.npz": "c8fcbba77a4d8f98149d2309935c61c2540a925e3ccd2d3a8c376e3b6e12e2b5",
+    "input_snapshot/tokens-validation.npz": "9250b0f62de17e68f332e8e2eb0e8d2b0af382035977b81f806d44430c49b198"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "scope": "Source snapshots and code provenance; original result archive filenames omitted for anonymous distribution.",
+  "qwen3_adapter": "core.py, model.py, revised.py copied from archived Qwen3 run; ancillary fitting/CLI code supplied from the compatible replication package.",
+  "qwen25_adapter": "complete package copied from archived Qwen2.5 run",
+  "interventions": "code matches the intervention result archive; README replaced with repository-neutral instructions"
+}

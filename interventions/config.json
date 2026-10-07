@@ -1,0 +1,15 @@
+{
+  "models": ["qwen25", "qwen3"],
+  "split": "test",
+  "n_documents": 128,
+  "pilot_documents": 2,
+  "seed": 20261006,
+  "suffix_start": 256,
+  "suffix_length": 512,
+  "prefix_lengths": [0, 16, 64, 256],
+  "shuffle_prefix_length": 64,
+  "replacement_positions": [0, 1],
+  "replacement_donors": 4,
+  "bootstrap_replicates": 2000,
+  "status": "exploratory intervention extension; existing corpus previously examined"
+}

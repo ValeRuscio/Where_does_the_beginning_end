@@ -1,0 +1,177 @@
+{
+  "status": "validation-developed analysis",
+  "n_documents": 128,
+  "unit": "source document",
+  "endpoints": [
+    {
+      "n_documents": 128,
+      "mean": 0.1307607242746902,
+      "sd": 0.10068860923534281,
+      "ci": [
+        0.11314982446296278,
+        0.14837162408641763
+      ],
+      "p_two_sided": 3.6144296381372935e-29,
+      "t": 14.692711805186837,
+      "paired_standardized_effect": 1.2986645189334063,
+      "endpoint": "local_logit_early_minus_late_gain",
+      "familywise_ci": [
+        0.1082108409205249,
+        0.1533106076288555
+      ],
+      "p_holm_four_endpoints": 7.228859276274587e-29
+    },
+    {
+      "n_documents": 128,
+      "mean": 0.002075372934689082,
+      "sd": 0.0021273087406808435,
+      "ci": [
+        0.0017032968737994438,
+        0.0024474489955787202
+      ],
+      "p_two_sided": 2.837498490074403e-20,
+      "t": 11.037497266259528,
+      "paired_standardized_effect": 0.9755861455375117,
+      "endpoint": "local_probability_early_minus_late_gain",
+      "familywise_ci": [
+        0.0015989480011742478,
+        0.0025517978682039165
+      ],
+      "p_holm_four_endpoints": 2.837498490074403e-20
+    },
+    {
+      "n_documents": 128,
+      "mean": 2.8508538933699983,
+      "sd": 0.14945513858225995,
+      "ci": [
+        2.824713503787617,
+        2.8769942829523796
+      ],
+      "p_two_sided": 8.698176417708058e-165,
+      "t": 215.80877197495306,
+      "paired_standardized_effect": 19.07498076287883,
+      "endpoint": "first_bias_over_relative_kl_gain",
+      "familywise_ci": [
+        2.817382421598715,
+        2.8843253651412817
+      ],
+      "p_holm_four_endpoints": 3.479270567083223e-164
+    },
+    {
+      "n_documents": 128,
+      "mean": 2.607321315974967,
+      "sd": 0.15299462247203677,
+      "ci": [
+        2.5805618544176974,
+        2.6340807775322364
+      ],
+      "p_two_sided": 1.3700198303610423e-158,
+      "t": 192.80725593817277,
+      "paired_standardized_effect": 17.041914766981524,
+      "endpoint": "first_bias_over_self_bias_kl_gain",
+      "familywise_ci": [
+        2.573057153258257,
+        2.6415854786916766
+      ],
+      "p_holm_four_endpoints": 4.1100594910831266e-158
+    }
+  ],
+  "local_offsets": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "early_queries": [
+    4,
+    7
+  ],
+  "late_queries": [
+    32,
+    63
+  ],
+  "prediction_queries": [
+    4,
+    255
+  ],
+  "uncertainty": "Conditional on training reference and fitted biases; four-test Holm correction",
+  "local_gains": {
+    "local_logit_gain": {
+      "early": {
+        "n_documents": 128,
+        "mean": 0.18029497603987465,
+        "sd": 0.1010400807839733,
+        "ci": [
+          0.16262260224140124,
+          0.19796734983834807
+        ],
+        "p_two_sided": 1.8658926614380984e-41,
+        "t": 20.188075731132354,
+        "paired_standardized_effect": 1.784390656073907
+      },
+      "late": {
+        "n_documents": 128,
+        "mean": 0.049534251765184445,
+        "sd": 0.024011447140830696,
+        "ci": [
+          0.04533453947257162,
+          0.05373396405779727
+        ],
+        "p_two_sided": 9.086831491890348e-48,
+        "t": 23.339538091964837,
+        "paired_standardized_effect": 2.0629432068237588
+      }
+    },
+    "local_probability_gain": {
+      "early": {
+        "n_documents": 128,
+        "mean": 0.0022663409783429955,
+        "sd": 0.0021731208006465974,
+        "ci": [
+          0.0018862521779354244,
+          0.0026464297787505667
+        ],
+        "p_two_sided": 3.766898053074493e-22,
+        "t": 11.79903168781384,
+        "paired_standardized_effect": 1.0428969147360152
+      },
+      "late": {
+        "n_documents": 128,
+        "mean": 0.0001909680436539135,
+        "sd": 0.00038819054117444245,
+        "ci": [
+          0.0001230717366098421,
+          0.0002588643506979849
+        ],
+        "p_two_sided": 1.4821708592320196e-07,
+        "t": 5.565712064969862,
+        "paired_standardized_effect": 0.4919440929089964
+      }
+    }
+  },
+  "model_fit": {
+    "relative_tv": 0.6951114483905719,
+    "first_bias_tv": 0.3474330878507028,
+    "self_bias_tv": 0.6897009535533716,
+    "first_bias_kl_gain": 2.850853893369998,
+    "self_bias_kl_gain": 0.2435325769019694,
+    "first_over_self_kl_gain": 2.607321315974967,
+    "observed_first_mass": 0.5029343451587631,
+    "relative_first_mass": 0.0035563349963576045,
+    "first_bias_first_mass": 0.5242819738766503,
+    "self_bias_first_mass": 0.005190630438774529
+  },
+  "late_first_key_mass": {
+    "n_documents": 128,
+    "mean": 0.4413166652034306,
+    "sd": 0.024239657820869395,
+    "ci": [
+      0.4370770378156283,
+      0.4455562925912329
+    ],
+    "p_two_sided": 3.181801980817617e-162,
+    "t": 205.98178995567133,
+    "paired_standardized_effect": 18.206390059824784
+  },
+  "limits": "Positive model gain is predictive evidence, not proof of a causal mechanism; no full-distribution prediction beyond max_offset."
+}

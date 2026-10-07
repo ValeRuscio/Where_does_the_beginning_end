@@ -1,0 +1,103 @@
+Boundary relocation and first-token replacement: version 1
+
+These are exploratory interventions on previously examined documents, not an
+independent confirmatory test. No weights are trained, mask removed, BOS inserted,
+or positional decoder fitted. Source documents are the analysis units.
+
+INPUTS AND MODELS
+Included: all 896 original tokenized Wikipedia passages (256 training, 128 validation,
+512 test). Default main collection uses the first 128 test documents in saved order;
+the pilot uses the first two validation documents. Training supplies the donor pool.
+IDs and snapshot hashes are checked. No old run folder or reference fit is needed.
+
+Qwen/Qwen2.5-1.5B, commit 8faed761d45a263340a0528343f099c05c9a4323
+Qwen/Qwen3-1.7B-Base, commit ea980cb0a6c2ae4b936e82123acc929f1cec04c1
+Float32, native eager causal attention, batch one, no KV cache, TF32 disabled.
+Models run sequentially. Public checkpoints normally require no Hugging Face login.
+
+The actual native softmax input is observed, not a sliced QK reconstruction.
+Reference implementations:
+https://github.com/huggingface/transformers/blob/v4.57.1/src/transformers/models/qwen2/modeling_qwen2.py
+https://github.com/huggingface/transformers/blob/v4.57.1/src/transformers/models/qwen3/modeling_qwen3.py
+
+1. MOVE THE BOUNDARY
+For saved passage x, retain suffix x[256:768] (512 tokens).
+Run x[256-m:768] for m in {0,16,64,256}, position IDs starting at zero.
+Suffix query coordinate r maps to actual query m+r. Measure the same four offset
+keys 0..3 at r=4..511. These are identical token identities in every condition,
+and never include the first key. Adding a prefix still changes contextual states.
+
+Control: shuffle the interior of the 64-token prefix, retaining its first and final
+tokens, token multiset, length, and whole suffix. The document-seeded permutation
+is shared across models. This controls order/coherence partially, not all semantics.
+
+Record local conditional-attention TV and centered-logit RMS difference against the
+no-prefix baseline, actual first-key mass, and fixed suffix-start-key mass. The last
+two masses refer to different keys whenever a prefix is added.
+
+PRIMARY ENDPOINT 1: prefix-64 local-TV response averaged at r=4..7 minus its average
+at r=32..63, then averaged over heads/layers within each document. Positive means a
+larger early response to adding context. Other lengths and shuffled controls are
+descriptive. This does not isolate a context-free scalar called absolute position.
+
+2. FIRST-TOKEN IDENTITY
+Use the same 512-token no-prefix suffix. Replace token 0 or, separately, token 1.
+Use four identical donor identities for both positions in each document. Sample
+without replacement, uniformly over unique ordinary token identities at coordinate
+256 of training passages; exclude special IDs and the two original token identities.
+Donors are saved, fixed across positions, and match across models if eligible pools
+agree. They are not independent statistical samples.
+
+Record local conditional-attention TV, centered-logit RMS response, full-attention
+TV and change in first-key mass against the unchanged run. Average donors within
+source documents. Replacement analysis starts at r=5: query 4's offset-3 key would
+be the perturbed control token 1. Storage retains r=4 for common array shapes, but
+replacement plots and inference exclude it.
+
+PRIMARY ENDPOINT 2: mean local-TV response to replacing token 0 minus mean response
+to replacing token 1, averaged over r=5..63, donors, layers and heads. Positive means
+a larger first-token response within this intervention. Negative/null results stay.
+Token 1 has a different history and a one-token relative-distance difference; this
+is a nearby perturbation control, not a complete causal decomposition.
+
+STATISTICS
+Two endpoints per configured model. Document-level two-sided t tests, Holm adjustment
+across 2 x model count, and Bonferroni 95% familywise t intervals. An incomplete model
+analysis retains the planned family size. Curves use 2,000 whole-document bootstrap
+resamples and pointwise 95% bands, not simultaneous bands across positions.
+Models share source documents, so they are not independent corpus samples.
+The 128-document default is a practical budget, not a guarantee of power.
+Uncertainty is conditional on the fixed donor pool/design and does not account for
+prior selection of the research question. Pilot inference is diagnostic only.
+
+NUMERICAL CHECKS
+Check native softmax capture, causal support, normalization, exact-input repeat,
+unchanged native final states under observation, and no earlier effect of a future
+token mutation. Audit all tensors for every condition of the first pending full
+document. All saved measurements must be finite.
+
+Every document also runs unchanged no-prefix tokens with position IDs shifted by 64.
+Relative distances and causal support do not change. Under fixed-frequency RoPE this
+is an arithmetic negative control, not boundary relocation. Save its local/full TV
+curves (dotted plot lines) and signed early-minus-late local-TV response. If the RMS
+of that response exceeds 1% of the observed boundary endpoint RMS, summary.json
+marks review_required=true. Collection is retained; no strict failed shift check
+is silently reclassified as passed. This is a sensitivity diagnostic, not an error
+bound or a substitute for matched float64 checks when measured effects are small.
+The package does not claim float64 validation.
+
+COST AND RESUME
+14 forward passes/document: shared baseline, four other boundary conditions, eight
+replacement conditions, one arithmetic control. Maximum length 768. Default main:
+128 documents x 2 models. Use pilot timings on your GPU to estimate completion.
+
+Save each document atomically. Resume verifies config/code/input identity, source IDs
+and environment, then skips completed documents. Rerun interrupted documents. A lock
+prevents concurrent collection into the same output directory. For changed settings
+use a new --output directory and run its pilot. Do not edit source during collection.
+
+Saved arrays: layer curves, donor local curves, head-level primary endpoints, donor
+IDs. Full attention TV is computed against the in-memory baseline; the quadratic
+attention tensor is not saved. The ZIP contains all per-document results, summaries,
+plots, run manifests, environment metadata and code. Read numerical-control flags
+before interpreting the output.

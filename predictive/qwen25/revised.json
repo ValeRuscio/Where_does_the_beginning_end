@@ -1,0 +1,25 @@
+{
+  "source_run": "runs/qwen25-replication",
+  "output": "runs/qwen25-revised",
+  "max_offset": 255,
+  "local_offsets": 4,
+  "early": [
+    4,
+    8
+  ],
+  "late": [
+    32,
+    64
+  ],
+  "bias_queries": [
+    32,
+    256
+  ],
+  "comparison_queries": [
+    4,
+    256
+  ],
+  "bootstrap": 2000,
+  "alpha": 0.05,
+  "seed": 20261001
+}

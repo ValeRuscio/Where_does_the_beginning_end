@@ -1,0 +1,33 @@
+{
+  "model": "Qwen/Qwen2.5-1.5B",
+  "revision": "8faed761d45a263340a0528343f099c05c9a4323",
+  "dataset": "../../data/input_snapshot",
+  "output": "runs/qwen25-replication",
+  "seed": 20260929,
+  "length": 1024,
+  "lengths": [
+    64,
+    128,
+    256,
+    512,
+    1024
+  ],
+  "n_train": 256,
+  "n_validation": 128,
+  "n_test": 512,
+  "common_offsets": 4,
+  "fit_query_min": 512,
+  "early": [
+    4,
+    8
+  ],
+  "late": [
+    32,
+    64
+  ],
+  "bos": "none",
+  "dtype": "float32",
+  "device": "auto",
+  "bootstrap": 5000,
+  "alpha": 0.05
+}

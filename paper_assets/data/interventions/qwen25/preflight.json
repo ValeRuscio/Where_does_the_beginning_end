@@ -1,0 +1,8 @@
+{
+  "passed": true,
+  "repeat_max_error": 0.0,
+  "future_token_control_max_error": 0.0,
+  "observation_hidden_max_error": 0.0,
+  "capture_max_error": 0.0,
+  "note": "Native float32 checks; not a float64 intervention-effect audit."
+}

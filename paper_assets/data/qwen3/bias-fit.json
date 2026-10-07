@@ -1,0 +1,11 @@
+{
+  "training_documents": 256,
+  "queries": [
+    32,
+    255
+  ],
+  "beta_bound": 40,
+  "first_bias_heads_at_bound": 0,
+  "self_bias_heads_at_bound": 0,
+  "note": "One scalar per head in each alternative, trained on identical documents/query positions."
+}

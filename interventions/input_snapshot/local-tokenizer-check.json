@@ -1,0 +1,19 @@
+{
+  "components_equal": {
+    "model": true,
+    "normalizer": true,
+    "pre_tokenizer": true,
+    "decoder": true
+  },
+  "unique_used_ids": 37670,
+  "ordinary_pipeline_digest": "1e321d4d458b5cdc35b4047be7c954145014ca5a596102981d16adffa590930a",
+  "used_id_mapping_digest": "0ffaa5fe5716e825f32d0fdf6e3438e07bbad06307a2a42fcd7a56ca64b27139",
+  "special_tokens_in_inputs": false,
+  "differing_added_strings_verified_absent": [
+    "</think>",
+    "</tool_response>",
+    "<think>",
+    "<tool_response>"
+  ],
+  "note": "Ordinary BPE pipelines and used token IDs match; chat templates and verified-absent added tokens may differ."
+}

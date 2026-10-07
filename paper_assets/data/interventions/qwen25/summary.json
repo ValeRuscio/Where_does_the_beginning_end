@@ -1,0 +1,50 @@
+{
+  "model": "qwen25",
+  "stage": "main",
+  "status": "exploratory intervention extension; existing corpus previously examined",
+  "n_documents": 128,
+  "expected_documents": 128,
+  "complete": true,
+  "independent_unit": "source document; donors, heads and positions averaged within document",
+  "inference": "conditional on fixed donor pool and chosen interventions; exploratory",
+  "family_size": 4,
+  "primary_endpoints": [
+    {
+      "endpoint": "prefix64_local_tv_early_minus_late",
+      "n_documents": 128,
+      "mean": 0.10768945669106886,
+      "sd": 0.04484017511684768,
+      "familywise_ci": [
+        0.09764720140376135,
+        0.11773171197837637
+      ],
+      "p_two_sided": 9.228417669752385e-55,
+      "t": 27.171328351013134,
+      "note": null,
+      "p_holm_planned_family": 2.7685253009257156e-54
+    },
+    {
+      "endpoint": "replacement0_minus_replacement1_local_tv_queries5_63",
+      "n_documents": 128,
+      "mean": -0.0041098032339620325,
+      "sd": 0.007667506466121603,
+      "familywise_ci": [
+        -0.005826992275914359,
+        -0.0023926141920097063
+      ],
+      "p_two_sided": 1.4110075232969447e-08,
+      "t": -6.064176924098583,
+      "note": null,
+      "p_holm_planned_family": 1.4110075232969447e-08
+    }
+  ],
+  "warning": "Response TV is not a fraction of positional information or a causal source decomposition.",
+  "position_shift_numerical_control": {
+    "shift": 64,
+    "rms_boundary_endpoint_response": 2.9000238018701117e-06,
+    "rms_observed_boundary_endpoint": 0.11658452835490515,
+    "ratio": 2.487485983596293e-05,
+    "review_required": false,
+    "note": "A sensitivity diagnostic, not an error bound. If above 1%, run a matched float64 audit before interpreting the boundary endpoint; main collection is retained."
+  }
+}

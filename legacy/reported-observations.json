@@ -1,0 +1,44 @@
+{
+  "status": "Earlier reported descriptive summaries; raw measurements unavailable",
+  "fixed_bos": {
+    "n_prompts": 8,
+    "statistic": "activation Euclidean norm",
+    "reported_std": 0.0,
+    "models": {
+      "Llama-3.2-3B": {
+        "embedding": 1.13,
+        "layer_0": 19.92,
+        "layer_5": 593.68,
+        "layer_27": 248.03
+      },
+      "Mistral-7B-v0.3": {
+        "embedding": 0.14,
+        "layer_0": 6.02,
+        "layer_5": 265.0,
+        "layer_31": 325.84
+      }
+    },
+    "caveat": "Zero standard deviations have the precision of the original report; no new bitwise verification is claimed."
+  },
+  "bos_relocation": {
+    "n_chunks": 64,
+    "length": 256,
+    "topics": 4,
+    "bos_position": 8,
+    "statistic": "At a selected layer and key, maximum over heads of mean attention over prompts and queries at or after that key.",
+    "models": {
+      "Llama-3.2-1B": {
+        "key_8_bos": 0.92,
+        "key_0": 0.59
+      },
+      "Mistral-7B-v0.3": {
+        "key_8_bos": 0.94
+      }
+    },
+    "caveat": "Selected layer IDs and exact checkpoint revisions were unavailable. These selected-head statistics are not comparable to the new all-head/all-layer averages."
+  },
+  "limitations": [
+    "Not an audited replication in a third model family.",
+    "No raw per-prompt arrays or complete rerun recipe are supplied."
+  ]
+}

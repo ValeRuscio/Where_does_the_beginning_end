@@ -1,0 +1,78 @@
+{
+  "passed": true,
+  "relative_rms_error_limit": 0.01,
+  "definition": "RMS paired endpoint difference / max(RMS float64 endpoint, 1e-12), separately for each endpoint",
+  "endpoints": [
+    {
+      "name": "local_logit_gain_early_minus_late",
+      "float32_mean": 0.15975846289163478,
+      "float64_mean": 0.1597591056506914,
+      "mean_difference": -6.427590566019954e-07,
+      "max_absolute_document_difference": 6.750517190512451e-06,
+      "relative_rms_error": 1.3576423889890824e-05
+    },
+    {
+      "name": "local_probability_gain_early_minus_late",
+      "float32_mean": 0.0024087052593249727,
+      "float64_mean": 0.002408705200869825,
+      "mean_difference": 5.845514817906603e-11,
+      "max_absolute_document_difference": 1.1558405480990852e-08,
+      "relative_rms_error": 1.4589929348200263e-06
+    },
+    {
+      "name": "first_bias_kl_gain",
+      "float32_mean": 2.0082267083480008,
+      "float64_mean": 2.008227311531572,
+      "mean_difference": -6.031835713335432e-07,
+      "max_absolute_document_difference": 2.0924257548848857e-06,
+      "relative_rms_error": 4.758929242287062e-07
+    },
+    {
+      "name": "first_over_self_kl_gain",
+      "float32_mean": 1.772739835840042,
+      "float64_mean": 1.7727403858516126,
+      "mean_difference": -5.500115708503839e-07,
+      "max_absolute_document_difference": 1.8480418462196724e-06,
+      "relative_rms_error": 4.917781445007154e-07
+    }
+  ],
+  "n_documents": 32,
+  "length": 1024,
+  "audit_hash": "0fd489c05194432f00a926c12b7ed37997551eb7104b3cef9cf91b929be1ff85",
+  "scope": "Evaluation sensitivity conditional on identical float32-fitted references; does not test refitting in float64",
+  "precision": "float64 model, RoPE, RMSNorm, softmax and metrics; same stored checkpoint weights and frequencies",
+  "document_ids": [
+    "74881771",
+    "74680069",
+    "151903",
+    "74089296",
+    "74819685",
+    "74506054",
+    "74914321",
+    "155558",
+    "74238388",
+    "75093014",
+    "75168344",
+    "73959746",
+    "74546697",
+    "75097933",
+    "74132208",
+    "74759133",
+    "74526846",
+    "157295",
+    "74759230",
+    "74197548",
+    "154099",
+    "157437",
+    "153477",
+    "156681",
+    "74473595",
+    "74915587",
+    "74041971",
+    "75010161",
+    "161854",
+    "74751631",
+    "152265",
+    "74026431"
+  ]
+}
